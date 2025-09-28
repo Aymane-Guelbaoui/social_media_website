@@ -252,7 +252,7 @@ Repo: .gitignore excludes node_modules/, venv/, and any sensitive files.
 README includes: repo link, hosted link, Figma link, Google Slides link, 5-min demo video link (placeholders below).
 
 ## ERD DIAGRAM
-!(./screenshots/ERD DIAGRAM.png) 
+ ![Erd](./screenshots/ERDDIAGRAM.png) 
 
 ## 📸 Screenshots  
 
