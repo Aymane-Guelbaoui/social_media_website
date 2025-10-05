@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'base.MyUser'
 
 SIMPLE_JWT = {
-    "USER_ID_FIELD":'username'
+    "USER_ID_FIELD": 'username'
 }
 
 # Application definition
@@ -66,8 +66,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# ✅ Fixed CORS_ALLOWED_ORIGINS: remove path from Vercel URL
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://social-media-website-ten-snowy.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -99,12 +101,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Example
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation

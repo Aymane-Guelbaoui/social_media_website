@@ -55,7 +55,6 @@ const UserDetails = ({username}) => {
     }
 
     useEffect(() => {
-
         const fetchData = async () => {
             try {
                 const data = await get_user_profile_data(username);
@@ -95,16 +94,16 @@ const UserDetails = ({username}) => {
                         </VStack>
                     </HStack>
                     {
-                        loading ?
+                        loading ? (
                             <Spacer />
-                        :
-
-                            isOurProfile ?
-                                <Button w='100%'>Edit Profile</Button>
-                            :
-                                <Button onClick={handleToggleFollow} colorScheme="blue" w='100%'>{following ? 'Unfollow' : 'Follow'}</Button>
+                        ) : (
+                            !isOurProfile && (
+                                <Button onClick={handleToggleFollow} colorScheme="blue" w='100%'>
+                                    {following ? 'Unfollow' : 'Follow'}
+                                </Button>
+                            )
+                        )
                     }
-                
                 </VStack>
             </HStack>
             <Text fontSize='18px'>{ loading ? '-' : bio}</Text>
@@ -118,7 +117,6 @@ const UserPosts = ({username}) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-
         const fetchPosts = async () => {
             try {
                 const posts = await get_users_posts(username)
@@ -130,7 +128,6 @@ const UserPosts = ({username}) => {
             }
         }
         fetchPosts()
-
     }, [])
 
     return (
@@ -145,12 +142,5 @@ const UserPosts = ({username}) => {
         </Flex>
     )
 }
-
-
-
-
-
-
-
 
 export default UserProfile
